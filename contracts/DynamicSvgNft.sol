@@ -7,6 +7,7 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "base64-sol/base64.sol";
 import "hardhat/console.sol";
 
+//errors
 error ERC721Metadata__URI_QueryFor_NonExistentToken();
 
 contract DynamicSvgNft is ERC721, Ownable {
@@ -16,6 +17,8 @@ contract DynamicSvgNft is ERC721, Ownable {
 
     mapping(uint256 => int256) private s_tokenIdToHighValues;
     AggregatorV3Interface internal immutable i_priceFeed;
+    
+    //events
     event CreatedNFT(uint256 indexed tokenId, int256 highValue);
 
     constructor(
