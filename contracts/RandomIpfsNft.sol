@@ -7,6 +7,7 @@ import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
 import "hardhat/console.sol";
 
+//errors
 error RandomIpfsNft__AlreadyInitialized();
 error RandomIpfsNft__NeedMoreETHSent();
 error RandomIpfsNft__RangeOutOfBounds();
@@ -38,7 +39,7 @@ contract RandomIpfsNft is ERC721URIStorage, VRFConsumerBaseV2, Ownable {
     // VRF Helpers
     mapping(uint256 => address) public s_requestIdToSender;
 
-    // Events
+    // events
     event NftRequested(uint256 indexed requestId, address requester);
     event NftMinted(Breed breed, address minter);
 
